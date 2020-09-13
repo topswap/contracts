@@ -7,14 +7,14 @@ import { ecsign } from 'ethereumjs-util'
 
 import { expandTo18Decimals, getApprovalDigest } from './shared/utilities'
 
-import ERC20 from '../build/ERC20.json'
+import BEP20 from '../build/BEP20.json'
 
 chai.use(solidity)
 
 const TOTAL_SUPPLY = expandTo18Decimals(10000)
 const TEST_AMOUNT = expandTo18Decimals(10)
 
-describe('UniswapV2ERC20', () => {
+describe('BSCswapBEP20', () => {
   const provider = new MockProvider({
     hardfork: 'istanbul',
     mnemonic: 'horn horn horn horn horn horn horn horn horn horn horn horn',
@@ -24,13 +24,13 @@ describe('UniswapV2ERC20', () => {
 
   let token: Contract
   beforeEach(async () => {
-    token = await deployContract(wallet, ERC20, [TOTAL_SUPPLY])
+    token = await deployContract(wallet, BEP20, [TOTAL_SUPPLY])
   })
 
   it('name, symbol, decimals, totalSupply, balanceOf, DOMAIN_SEPARATOR, PERMIT_TYPEHASH', async () => {
     const name = await token.name()
-    expect(name).to.eq('Uniswap V2')
-    expect(await token.symbol()).to.eq('UNI-V2')
+    expect(name).to.eq('BSCswap LP Token')
+    expect(await token.symbol()).to.eq('BLP')
     expect(await token.decimals()).to.eq(18)
     expect(await token.totalSupply()).to.eq(TOTAL_SUPPLY)
     expect(await token.balanceOf(wallet.address)).to.eq(TOTAL_SUPPLY)

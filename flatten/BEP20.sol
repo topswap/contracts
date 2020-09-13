@@ -1,13 +1,38 @@
-pragma solidity =0.5.16;
+// Dependency file: contracts/libraries/SafeMath.sol
 
-import './interfaces/IUniswapV2ERC20.sol';
-import './libraries/SafeMath.sol';
+// SPDX-License-Identifier: GPL-3.0-or-later
 
-contract UniswapV2ERC20 is IUniswapV2ERC20 {
-    using SafeMath for uint;
+// pragma solidity =0.6.12;
 
-    string public constant name = 'Uniswap V2';
-    string public constant symbol = 'UNI-V2';
+// a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
+
+library SafeMathBSCswap {
+    function add(uint x, uint y) internal pure returns (uint z) {
+        require((z = x + y) >= x, 'ds-math-add-overflow');
+    }
+
+    function sub(uint x, uint y) internal pure returns (uint z) {
+        require((z = x - y) <= x, 'ds-math-sub-underflow');
+    }
+
+    function mul(uint x, uint y) internal pure returns (uint z) {
+        require(y == 0 || (z = x * y) / y == x, 'ds-math-mul-overflow');
+    }
+}
+
+// Dependency file: contracts/BSCswapBEP20.sol
+
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+// pragma solidity =0.6.12;
+
+// import './libraries/SafeMath.sol';
+
+contract BSCswapBEP20 {
+    using SafeMathBSCswap for uint;
+
+    string public constant name = 'BSCswap LP Token';
+    string public constant symbol = 'BLP';
     uint8 public constant decimals = 18;
     uint  public totalSupply;
     mapping(address => uint) public balanceOf;
@@ -24,7 +49,7 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
     constructor() public {
         uint chainId;
         assembly {
-            chainId := chainid
+            chainId := chainid()
         }
         DOMAIN_SEPARATOR = keccak256(
             abi.encode(
@@ -79,7 +104,7 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
     }
 
     function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external {
-        require(deadline >= block.timestamp, 'UniswapV2: EXPIRED');
+        require(deadline >= block.timestamp, 'BSCswap: EXPIRED');
         bytes32 digest = keccak256(
             abi.encodePacked(
                 '\x19\x01',
@@ -88,7 +113,19 @@ contract UniswapV2ERC20 is IUniswapV2ERC20 {
             )
         );
         address recoveredAddress = ecrecover(digest, v, r, s);
-        require(recoveredAddress != address(0) && recoveredAddress == owner, 'UniswapV2: INVALID_SIGNATURE');
+        require(recoveredAddress != address(0) && recoveredAddress == owner, 'BSCswap: INVALID_SIGNATURE');
         _approve(owner, spender, value);
+    }
+}
+
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+pragma solidity =0.6.12;
+
+// import '../BSCswapBEP20.sol';
+
+contract BEP20 is BSCswapBEP20 {
+    constructor(uint _totalSupply) public {
+        _mint(msg.sender, _totalSupply);
     }
 }

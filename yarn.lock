@@ -2,30 +2,39 @@
 # yarn lockfile v1
 
 
-"@ethereum-waffle/chai@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@ethereum-waffle/chai/-/chai-2.4.1.tgz#47a6cc2eebaca775b169b524a6dc0cfcf3d3c22d"
-  integrity sha512-EMH8UtwhsSaCeUIlH72JPaUGhYTIeHJW0aVSM9EXKh0SMNJpptaHCz5dFpjoRwvhtVwOynuCc7SpFXMq7p8T0A==
+"@ethereum-waffle/chai@^2.5.0":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@ethereum-waffle/chai/-/chai-2.5.1.tgz#8bdc055952fc80ff78132571396a2771a36d97ae"
+  integrity sha512-g/PTnycTM5bODJCumO0XnccKeLITKELwuWOll3EAK+lE5u/OYvfVH5tAsDMJkB8m7J6wVKJ8iT+UiLEKb1qO1g==
   dependencies:
+    "@ethereum-waffle/provider" "^2.5.1"
     ethers "^4.0.45"
 
-"@ethereum-waffle/compiler@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@ethereum-waffle/compiler/-/compiler-2.4.1.tgz#8a1f0b4c5be8e22408a391944d3ecc7fc92e49a5"
-  integrity sha512-f+o79gKFzXaan2IOvjYRFlnR2ae3bzDET6otiH9N27hYUx5w0AQRNDkQEpVcS+sjUL9WV6ZzcFlXcVsM6144fg==
+"@ethereum-waffle/compiler@^2.5.0":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@ethereum-waffle/compiler/-/compiler-2.5.1.tgz#955a1fd6558f66b388707c4cec05459e6253535f"
+  integrity sha512-H08PgcJ+M4URDP2JBjDeYJRMtsh7PusEdRTaEQ7bHeVyjqqv18UEtFPBD7bR169sK9RGlkzjYmCeIRWomCQLlw==
   dependencies:
     "@resolver-engine/imports" "^0.3.3"
     "@resolver-engine/imports-fs" "^0.3.3"
     "@types/mkdirp" "^0.5.2"
     "@types/node-fetch" "^2.5.5"
+    ethers "^4.0.45"
     mkdirp "^0.5.1"
     node-fetch "^2.6.0"
     solc "^0.6.3"
 
-"@ethereum-waffle/provider@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@ethereum-waffle/provider/-/provider-2.4.1.tgz#5480be31f9c655864e3eede374759973d20947ef"
-  integrity sha512-OhRQfQlR6BsgGUEaeeaQXztbRQ0v/AmwEdmWHmBwJN6NX/FjLmOTIyF3LBWBFHH4K5GgSCDhFs6w5Khz+ojRKg==
+"@ethereum-waffle/mock-contract@^2.5.0":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@ethereum-waffle/mock-contract/-/mock-contract-2.5.1.tgz#83dbd85bbcab0c0747eadca1bb802f228d7b0874"
+  integrity sha512-KuUCaCaMRKOI9sJ/MqiJU9ne8wpMWN4NB3beGZpPEo66jK2Ythvz5mgYLNAwAZdzM531NPKc/cWmLUdEF7jnlw==
+  dependencies:
+    ethers "^4.0.45"
+
+"@ethereum-waffle/provider@^2.5.0", "@ethereum-waffle/provider@^2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@ethereum-waffle/provider/-/provider-2.5.1.tgz#fba3c120239c4928caae82db6b1bc4a4e294017a"
+  integrity sha512-J2yAB7F8eLIPHghcEKjPHBD4Zuix5mM8V4c5JHO20FTrqElWJbZ8pkg/aoztPms2JEt9gEvadAFTcxhd9eYDnA==
   dependencies:
     ethers "^4.0.45"
     ganache-core "^2.10.2"
@@ -2328,14 +2337,15 @@ ethereum-common@^0.0.18:
   resolved "https://registry.yarnpkg.com/ethereum-common/-/ethereum-common-0.0.18.tgz#2fdc3576f232903358976eb39da783213ff9523f"
   integrity sha1-L9w1dvIykDNYl26znaeDIT/5Uj8=
 
-ethereum-waffle@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/ethereum-waffle/-/ethereum-waffle-2.4.1.tgz#db13376d5d366a0b3e8813cb64956a4682cbe144"
-  integrity sha512-52HOubO/V80LDGN+N3FVb6yBq8L5vV2+kP7wjR5AgDoEeQHIrwqumcjJ22tE+FvzR8+eHTh3ItXjQPqJrMp+Mw==
+ethereum-waffle@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/ethereum-waffle/-/ethereum-waffle-2.5.0.tgz#41f88a523abacb6c82c7e51798047c7cdf4b94e5"
+  integrity sha512-i+CMYD5f9O+e8jL46ZRy29M7eZklWq1GdjPJvZZo6qqSP5oVBG8UxuXESihQOhYGh533wQPXiW+8GdjR3yXzAg==
   dependencies:
-    "@ethereum-waffle/chai" "^2.4.1"
-    "@ethereum-waffle/compiler" "^2.4.1"
-    "@ethereum-waffle/provider" "^2.4.1"
+    "@ethereum-waffle/chai" "^2.5.0"
+    "@ethereum-waffle/compiler" "^2.5.0"
+    "@ethereum-waffle/mock-contract" "^2.5.0"
+    "@ethereum-waffle/provider" "^2.5.0"
     ethers "^4.0.45"
 
 ethereumjs-abi@0.6.5:
@@ -5841,10 +5851,10 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-solc@0.5.16:
-  version "0.5.16"
-  resolved "https://registry.yarnpkg.com/solc/-/solc-0.5.16.tgz#6c8d710a3792ccc79db924606b558a1149b1c603"
-  integrity sha512-weEtRtisJyf+8UjELs7S4ST1KK7UIq6SRB7tpprfJBL9b5mTrZAT7m4gJKi2h6MiBpuSWfnraK8BnkyWzuTMRA==
+solc@0.6.12:
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/solc/-/solc-0.6.12.tgz#48ac854e0c729361b22a7483645077f58cba080e"
+  integrity sha512-Lm0Ql2G9Qc7yPP2Ba+WNmzw2jwsrd3u4PobHYlSOxaut3TtUbj9+5ZrT6f4DUpNPEoBaFUOEg9Op9C0mk7ge9g==
   dependencies:
     command-exists "^1.2.8"
     commander "3.0.2"
