@@ -16,6 +16,12 @@ In-depth documentation on BSCswap V2 is available at [uniswap.org](https://unisw
 
 The built contract artifacts can be browsed via [unpkg.com](https://unpkg.com/browse/@bscswap/contracts@latest/).
 
+## Listing a token
+
+Please see the
+[@bscswap/default-token-list](https://github.com/bscswap/default-token-list)
+repository.
+
 # Local Development
 
 The following assumes the use of `node@>=10`.
