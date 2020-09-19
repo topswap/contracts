@@ -1,10 +1,12 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 pragma solidity >=0.5.0;
 
 import '../BSCswapPair.sol';
-import '../libraries/FixedPoint.sol';
+import './FixedPoint.sol';
 
 // library with helper methods for oracles that are concerned with computing average prices
-library BSCswapV2OracleLibrary {
+library BSCswapOracleLibrary {
     using FixedPoint for *;
 
     // helper function that returns the current block timestamp within the range of uint32, i.e. [0, 2**32 - 1]
