@@ -23,7 +23,7 @@ contract BSCswapFactory is IBSCswapFactory {
     }
 
     function pairCodeHash() external pure returns (bytes32) {
-        return keccak256(type(UniswapV2Pair).creationCode);
+        return keccak256(type(BSCswapPair).creationCode);
     }
 
     function createPair(address tokenA, address tokenB) external override returns (address pair) {
